@@ -67,6 +67,7 @@ function trendsPage() {
 
 function categoriesPage() {
   console.log('Categories!');
+  window.scrollTo(0, 0);
 
   headerSection.classList.remove('header-container--long');
   headerSection.style.background = '';
@@ -80,6 +81,14 @@ function categoriesPage() {
   categoriesPreviewSection.classList.add('inactive');
   genericSection.classList.remove('inactive');
   movieDetailSection.classList.add('inactive');
+
+  // Separamos en dos con el split, y esto obtendríamos: ['#category', 'id-name']
+  const [ _, categoryData ] = location.hash.split('=');
+  const [ categoryId, categoryName ] = categoryData.split('-');
+
+  headerCategoryTitle.innerHTML = categoryName;
+
+  getMoviesByCategory(categoryId);
 }
 
 function movieDetailsPage() {
