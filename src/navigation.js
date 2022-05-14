@@ -26,6 +26,10 @@ function navigator() {
   } else {
     homePage();
   }
+
+  // document.documentElement.scrollTop = 0;
+  // document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
 }
 
 function homePage() {
@@ -67,7 +71,6 @@ function trendsPage() {
 
 function categoriesPage() {
   console.log('Categories!');
-  window.scrollTo(0, 0);
 
   headerSection.classList.remove('header-container--long');
   headerSection.style.background = '';
